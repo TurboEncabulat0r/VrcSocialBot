@@ -1,12 +1,15 @@
 #this converts speech to text
 import speech_recognition as sr
 import os
+#sr.Microphone.list_microphone_names()
 
 def speechToText():
     r = sr.Recognizer()
     with sr.Microphone() as source:
         audio = r.listen(source)
+
     try:
+
         print("Heard: " + r.recognize_google(audio))
     except sr.UnknownValueError:
         return
